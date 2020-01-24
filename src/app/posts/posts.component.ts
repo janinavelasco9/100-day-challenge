@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Post } from '../post.model';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-posts',
@@ -6,10 +10,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
+  loadedPosts = [];
+  error = null;
 
-  constructor() { }
+  constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
+    this.fetchPosts();
+  }
+  
+  private fetchPosts() {
+    this.postsService.fetchPosts().subscribe(
+      posts => {
+        this.loadedPosts = posts;
+      },
+    ), error => {
+      this.error = error.message;
+    }
   }
 
+  onClearPosts() {
+    // Send Http request
+    this.postsService.deletePosts().subscribe(() => {
+      this.loadedPosts = [];
+    });
+  }
 }

@@ -1,4 +1,4 @@
-$pink: #D11D67;
+$white: #fff;
 
 body {
   margin: 0;
@@ -11,18 +11,10 @@ body {
 }
 
 .link {
-  text-decoration: none;
-  
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-}
-
-
-.link {
   position: relative;
   text-decoration: none;
+  color: $white;
+  // font-weight: bold;
   
   &:hover,
   &:focus {
@@ -37,12 +29,18 @@ body {
   display: block;
   margin-top: 5px;
   right: 0;
-  background: $pink;
+  background: $white;
   transition: width .2s ease;
 }
  
 .link:hover:after{
   width: 100%;
   left: 0;
-  background: $pink;
+  background: $white;
+}
+
+.centered-column {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
