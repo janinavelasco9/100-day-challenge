@@ -1,0 +1,25 @@
+$pink: #D11D67;
+$white: #fff;
+
+.navigation {
+  align-items: center;
+  display: flex;
+  height: 77px;
+}
+
+.navigation-link {
+  margin-right: 1rem;
+  color: $pink;
+}
+
+.navigation-link--standout {
+  margin-right: 0;
+  background: $pink;
+  color: $white;
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+}
