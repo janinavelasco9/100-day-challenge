@@ -1,0 +1,12 @@
+$white: #fff;
+$blue: #1dc1d1;
+
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background: $white;
+  color: $blue;
+  flex-direction: column;
+  padding: 0 2rem;
+}

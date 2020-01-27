@@ -1,15 +1,22 @@
-<h1>
-  Posts
-</h1>
+<section class="container">
+  <h1 class="page-title">
+    Posts
+  </h1>
 
-<button
-  class="btn btn-danger"
-  [disabled]="loadedPosts.length < 1"
-  (click)="onClearPosts()"
->
-  Clear Posts
-</button>
-<div *ngFor="let post of loadedPosts" >
-  {{ post.title }}  
-  {{ post.content }}  
-</div>
+  <!-- <button
+    class="btn btn-danger"
+    [disabled]="loadedPosts.length < 1"
+    (click)="onClearPosts()"
+  >
+    Clear Posts
+  </button> -->
+  <div *ngFor="let post of loadedPosts" >
+    <h3>
+      {{ post.title }}
+    </h3>
+    <p>
+      {{ post.content }}
+    </p>
+  </div>
+</section>
+

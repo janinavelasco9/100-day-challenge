@@ -1,14 +1,55 @@
 $pink: #D11D67;
+$white: #fff;
+$blue: #1dc1d1;
 
 .navigation {
-  position: absolute;
+  position: sticky;
   align-items: center;
-  display: -webkit-box;
   display: flex;
   height: 77px;
-  justify-content: flex-end;
-  width: 100%;}
+  justify-content: space-between;
+  width: 100%;
+  background: $pink;
+  color: $white;
+  top: 0;
+  padding: 0 1rem;
+}
 
 .navigation-link {
   margin-right: 1rem;
+  
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.navigation-link--site {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navigation--inverse-pink {
+  background: $white;
+  
+  .navigation-link,
+  .navigation-link-site {
+    color: $pink;
+  }
+  
+  .link:after {
+    background: $pink;
+  }
+}
+
+.navigation--inverse-blue {
+  background: $white;
+  
+  .navigation-link,
+  .navigation-link-site {
+    color: $blue;
+  }
+  
+  .link:after {
+    background: $blue;
+  }
 }

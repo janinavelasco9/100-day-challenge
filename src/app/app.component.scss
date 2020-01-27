@@ -1,11 +1,8 @@
-.hero {
-  height: 100vh;
-  background: #D11D67;
-  color: white;
-  display: flex;
-  align-items: center;
-}
+$pink: #D11D67;
+$white: #fff;
 
-.hero--centered {
-  justify-content: center;
+.hero {
+  height: calc(100vh - 77px);
+  background: $pink;
+  color: $white;
 }

@@ -1,7 +1,10 @@
+$pink: #D11D67;
+$white: #fff;
+
 .hero {
-  height: 100vh;
-  background: #D11D67;
-  color: white;
+  height: 100%;
+  background: $pink;
+  color: $white;
   display: flex;
   align-items: center;
 }
@@ -11,4 +14,5 @@
   font-size: 4rem;
   padding: 0 1.5rem;
   letter-spacing: 6px;
+  font-family: 'Raleway', sans-serif;
 }

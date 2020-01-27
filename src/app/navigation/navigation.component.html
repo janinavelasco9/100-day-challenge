@@ -1,8 +1,13 @@
-<nav role="navigation" class="navigation">
-  <a class="link navigation-link" routerLink="/blog">
-    Blog
+<nav role="navigation" class="navigation" [class.navigation--inverse-pink]="rlaPost.isActive" [class.navigation--inverse-blue]="rlaBlog.isActive">
+  <a class="navigation-link navigation-link--site link" routerLink="">
+    OHDC
   </a>
-  <a class="link navigation-link" routerLink="/new-post">
-    Create New Blog
-  </a>
+  <div class="navigation-links">
+    <a class="navigation-link link" routerLink="/blog" routerLinkActive #rlaBlog="routerLinkActive">
+      Blog
+    </a>
+    <a class="navigation-link link" routerLink="/new-post" routerLinkActive #rlaPost="routerLinkActive">
+      Create New Post
+    </a>
+  </div>
 </nav>
