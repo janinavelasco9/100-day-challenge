@@ -59,6 +59,7 @@ $gray: #b7b5b5;
 
 .form {
   width: 30rem;
+  max-width: 100%;
 }
 
 .button {
@@ -68,6 +69,12 @@ $gray: #b7b5b5;
   border: 2px solid $black;
   font-size: 1rem;
   color: $black;
+  cursor: pointer;
+  
+  &:hover {
+    background: $black;
+    color: $white;
+  }
 }
 
 .button:disabled {

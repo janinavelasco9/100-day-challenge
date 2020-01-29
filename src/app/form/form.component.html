@@ -16,17 +16,16 @@
         name="title"
       />
     </div>
-    <div class="input-container">
-      <label class="label" for="content">
-        Content
-      </label>
-      <textarea
-        class="textarea-input"
-        id="content"
-        required
-        ngModel
-        name="content"
-      ></textarea>
+    
+    <label class="label" for="content">
+      Content
+    </label>
+    <div 
+      contenteditable="true"
+      class="textarea-input"
+      id="content"
+      [(ngModel)]="content" 
+      name="content">
     </div>
 
     <button

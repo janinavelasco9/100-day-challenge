@@ -9,6 +9,7 @@ import { FormComponent } from './form/form.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PostsComponent } from './posts/posts.component';
 import { IntroComponent } from './intro/intro.component';
+import { ContentEditableFormDirective } from './contenteditable.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { IntroComponent } from './intro/intro.component';
     FormComponent,
     NavigationComponent,
     PostsComponent,
-    IntroComponent
+    IntroComponent,
+    ContentEditableFormDirective
   ],
   imports: [
     BrowserModule,
