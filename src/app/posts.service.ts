@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable,Subject} from 'rxjs';
 
 import { Post } from './post.model';
 
@@ -12,16 +13,16 @@ export class PostsService {
   
   createAndStorePost(title: string, content: string) {
     const postData: Post = { title: title, content: content };
+
     this.http
       .post<{ name: string }>(
         this.databasePath,
-        postData
+        postData,
       )
       .subscribe(
         responseData => {
-          console.log(responseData);
         }
-      );
+      )
   }
   
   fetchPosts() {

@@ -9,7 +9,7 @@ import { FormComponent } from './form/form.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PostsComponent } from './posts/posts.component';
 import { IntroComponent } from './intro/intro.component';
-import { ContentEditableFormDirective } from './contenteditable.directive';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,12 +18,12 @@ import { ContentEditableFormDirective } from './contenteditable.directive';
     NavigationComponent,
     PostsComponent,
     IntroComponent,
-    ContentEditableFormDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

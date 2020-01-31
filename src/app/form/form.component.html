@@ -1,8 +1,13 @@
 <section class="container">
+  <div class="alert-success" role="alert" *ngIf="isSuccess">
+    {{ successMessage }}
+  </div>
+
   <h1 class="page-title">
     New Blog Post
   </h1>
-  <form class="form" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+
+  <form class="form" (submit)="onCreatePost(postForm.value)" [formGroup]="postForm">
     <div class="input-container">
       <label class="label" for="title">
         Title
@@ -12,21 +17,21 @@
         class="text-input"
         id="title"
         required
-        ngModel
         name="title"
+        formControlName="title"
       />
     </div>
     
     <label class="label" for="content">
       Content
     </label>
-    <div 
+    <textarea 
       contenteditable="true"
       class="textarea-input"
       id="content"
-      [(ngModel)]="content" 
+      formControlName="content"
       name="content">
-    </div>
+    </textarea>
 
     <button
       class="button"

@@ -10,13 +10,12 @@
   >
     Clear Posts
   </button> -->
-  <div *ngFor="let post of loadedPosts" >
-    <h3>
+  <div class="post" *ngFor="let post of loadedPosts" >
+    <h2 class="post-title">
       {{ post.title }}
-    </h3>
-    <p>
-      {{ post.content }}
-    </p>
+    </h2>
+    <div class="post-body" [innerHTML]="post.content">
+    </div>
   </div>
 </section>
 

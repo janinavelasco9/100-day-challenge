@@ -1,11 +1,12 @@
 $black: #000;
 $white: #fff;
 $gray: #b7b5b5;
+$green: #81C784;
 
 .container {
   display: flex;
   justify-content: center;
-  height: 100%;
+  height: calc(100vh - 77px);
   background: $white;
   color: $black;
   flex-direction: column;
@@ -84,4 +85,12 @@ $gray: #b7b5b5;
   border: 2px solid $gray;
   font-size: 1rem;
   color: $white;
+}
+
+.alert-success {
+  background: $green;
+  color: $white;
+  padding: 1rem;
+  border-radius: 1px;
+  margin-bottom: 2rem;
 }

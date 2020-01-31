@@ -1,16 +1,18 @@
 $white: #fff;
+$black: #000;
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
+  color: $black;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3 {
+h1, h2, h3, p {
   margin: 0;
   padding: 0;
 }
@@ -46,4 +48,8 @@ h1, h2, h3 {
   width: 100%;
   left: 0;
   background: $white;
+}
+
+.post-body p {
+  margin-top: 1rem;
 }

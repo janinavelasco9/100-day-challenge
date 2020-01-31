@@ -2,7 +2,7 @@ $pink: #D11D67;
 $white: #fff;
 
 .hero {
-  height: 100%;
+  height: calc(100vh - 77px);
   background: $pink;
   color: $white;
   display: flex;

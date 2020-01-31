@@ -1,12 +1,24 @@
 $white: #fff;
-$blue: #1dc1d1;
+$black: #000;
+$pink: #D11D67;
 
 .container {
   display: flex;
   justify-content: center;
   height: 100%;
   background: $white;
-  color: $blue;
   flex-direction: column;
   padding: 0 2rem;
+}
+
+.page-title {
+  border-bottom: 2px solid $pink;
+}
+
+.post {
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  margin-bottom: 0.5rem;
 }

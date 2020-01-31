@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
@@ -12,29 +13,22 @@ import { PostsService } from '../posts.service';
 export class FormComponent implements OnInit {  
   loadedPosts = [];
   error = null;
+  successMessage: string;
+  isSuccess = false;
   
-  constructor(private http: HttpClient, private postsService: PostsService) {}
+  constructor(private http: HttpClient, private postsService: PostsService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.fetchPosts();
-    document.execCommand("defaultParagraphSeparator", false, "p");
   }
   
-  private fetchPosts() {
-    this.postsService.fetchPosts().subscribe(
-      posts => {
-        this.loadedPosts = posts;
-        console.log(posts[posts.length - 1])
-      },
-    ), error => {
-      this.error = error.message;
-    }
-  }
+  postForm: FormGroup = this.fb.group({
+    title: [''],
+    content: ['']
+  });
 
-  
   onCreatePost(postData: Post) {
     this.postsService.createAndStorePost(postData.title, postData.content);
-    console.log(postData.title);
-    console.log(postData.content);
+    this.isSuccess = true;
+    this.successMessage = 'Post has been submitted successfully!';
   }
 }

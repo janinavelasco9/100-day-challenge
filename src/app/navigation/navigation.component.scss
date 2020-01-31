@@ -1,6 +1,5 @@
 $pink: #D11D67;
 $white: #fff;
-$blue: #1dc1d1;
 
 .navigation {
   position: sticky;
@@ -12,7 +11,7 @@ $blue: #1dc1d1;
   background: $pink;
   color: $white;
   top: 0;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .navigation-link {
@@ -38,18 +37,5 @@ $blue: #1dc1d1;
   
   .link:after {
     background: $pink;
-  }
-}
-
-.navigation--inverse-blue {
-  background: $white;
-  
-  .navigation-link,
-  .navigation-link-site {
-    color: $blue;
-  }
-  
-  .link:after {
-    background: $blue;
   }
 }
