@@ -3,19 +3,20 @@
     Posts
   </h1>
 
-  <!-- <button
-    class="btn btn-danger"
-    [disabled]="loadedPosts.length < 1"
-    (click)="onClearPosts()"
-  >
-    Clear Posts
-  </button> -->
+
   <div class="post" *ngFor="let post of loadedPosts" >
     <h2 class="post-title">
       {{ post.title }}
+      <!-- {{ post.id }} -->
     </h2>
     <div class="post-body" [innerHTML]="post.content">
     </div>
+    <button
+      class="btn btn-danger"
+      (click)="onClearPosts(post)"
+    >
+      Clear Posts
+    </button>
   </div>
 </section>
 

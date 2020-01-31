@@ -1,7 +1,5 @@
 <section class="container">
-  <div class="alert-success" role="alert" *ngIf="isSuccess">
-    {{ successMessage }}
-  </div>
+  <app-message></app-message>
 
   <h1 class="page-title">
     New Blog Post
@@ -26,11 +24,11 @@
       Content
     </label>
     <textarea 
-      contenteditable="true"
       class="textarea-input"
       id="content"
       formControlName="content"
-      name="content">
+      name="content"
+      required>
     </textarea>
 
     <button

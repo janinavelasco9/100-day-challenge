@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable,Subject} from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, tap } from 'rxjs/operators';
+import { MessageService } from './message.service';
 
 import { Post } from './post.model';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 
 export class PostsService {
   databasePath = 'https://hundred-day-challenge-blog.firebaseio.com/posts.json';
-  constructor(private http: HttpClient) {}
-  
+  postPath = 'https://hundred-day-challenge-blog.firebaseio.com/posts'
+  httpOptions = {
+    headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, DELETE'})
+  };
+
+  constructor(private http: HttpClient, private messageService: MessageService) {}
+    
   createAndStorePost(title: string, content: string) {
     const postData: Post = { title: title, content: content };
 
@@ -21,6 +27,7 @@ export class PostsService {
       )
       .subscribe(
         responseData => {
+          this.log('The post was submitted successfully!');
         }
       )
   }
@@ -41,9 +48,18 @@ export class PostsService {
       )
   }
   
-  deletePosts() {
-    return this.http.delete(
-      this.databasePath
-    );
+  deletePosts(post: Post) {
+    const id = post.id;
+    const url = `${this.postPath}/${id}`;
+    
+    console.log(id)
+    console.log(url)
+    
+    return this.http.delete(url, this.httpOptions)
+  }
+  
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+    this.messageService.add(`HeroService: ${message}`);
   }
 }

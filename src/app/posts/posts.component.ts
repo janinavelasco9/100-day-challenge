@@ -29,10 +29,9 @@ export class PostsComponent implements OnInit {
     }
   }
 
-  onClearPosts() {
+  onClearPosts(post: Post) {
     // Send Http request
-    this.postsService.deletePosts().subscribe(() => {
-      this.loadedPosts = [];
-    });
+    this.loadedPosts = this.loadedPosts.filter(p => p !== post)
+    this.postsService.deletePosts(post).subscribe();
   }
 }

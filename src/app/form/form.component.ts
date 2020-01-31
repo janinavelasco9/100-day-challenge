@@ -13,8 +13,6 @@ import { PostsService } from '../posts.service';
 export class FormComponent implements OnInit {  
   loadedPosts = [];
   error = null;
-  successMessage: string;
-  isSuccess = false;
   
   constructor(private http: HttpClient, private postsService: PostsService, private fb: FormBuilder) {}
 
@@ -23,12 +21,10 @@ export class FormComponent implements OnInit {
   
   postForm: FormGroup = this.fb.group({
     title: [''],
-    content: ['']
+    content: ['Duration:  What went well:  What was challenging:']
   });
 
   onCreatePost(postData: Post) {
     this.postsService.createAndStorePost(postData.title, postData.content);
-    this.isSuccess = true;
-    this.successMessage = 'Post has been submitted successfully!';
   }
 }

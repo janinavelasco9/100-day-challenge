@@ -10,6 +10,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PostsComponent } from './posts/posts.component';
 import { IntroComponent } from './intro/intro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavigationComponent,
     PostsComponent,
     IntroComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
