@@ -1,0 +1,20 @@
+$white: #fff;
+$green: #81C784;
+
+.alert {
+  padding: 1rem;
+  border-radius: 1px;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.alert--success {
+  background: $green;
+  color: $white;
+}
+
+.alert-icon {
+  fill: $white;
+  height: 1rem;
+  width: 1rem;
+}

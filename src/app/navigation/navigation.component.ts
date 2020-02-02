@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,8 +9,18 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  constructor() {}
+  isAuthenticated = false;
+  private userSub: Subscription;
+
+  constructor(
+    // private dataStorageService: DataStorageService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+      console.log(this.isAuthenticated)
+    });
   }
 }

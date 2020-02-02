@@ -1,37 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { Post } from '../post.model';
-import { PostsService } from '../posts.service';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent implements OnInit {
-  loadedPosts = [];
-  error = null;
-
-  constructor(private http: HttpClient, private postsService: PostsService) {}
-
-  ngOnInit() {
-    this.fetchPosts();
-  }
-  
-  private fetchPosts() {
-    this.postsService.fetchPosts().subscribe(
-      posts => {
-        this.loadedPosts = posts;
-      },
-    ), error => {
-      this.error = error.message;
-    }
+export class PostsComponent {
+  itemsRef: AngularFireList<any>;
+  items: Observable<any[]>;
+  constructor(db: AngularFireDatabase) {
+    this.itemsRef = db.list('posts');
+    // Use snapshotChanges().map() to store the key
+    this.items = this.itemsRef.snapshotChanges().pipe(
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
   }
 
-  onClearPosts(post: Post) {
-    // Send Http request
-    this.loadedPosts = this.loadedPosts.filter(p => p !== post)
-    this.postsService.deletePosts(post).subscribe();
+  deleteItem(key: string) {
+    this.itemsRef.remove(key);
+  }
+  deleteEverything() {
+    this.itemsRef.remove();
   }
 }

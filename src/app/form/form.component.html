@@ -1,11 +1,11 @@
 <section class="container">
-  <app-message></app-message>
+  <app-notificaton></app-notificaton>
 
   <h1 class="page-title">
     New Blog Post
   </h1>
-
-  <form class="form" (submit)="onCreatePost(postForm.value)" [formGroup]="postForm">
+  
+  <form class="form" [formGroup]="postForm">
     <div class="input-container">
       <label class="label" for="title">
         Title
@@ -17,6 +17,7 @@
         required
         name="title"
         formControlName="title"
+        #title
       />
     </div>
     
@@ -28,15 +29,14 @@
       id="content"
       formControlName="content"
       name="content"
-      required>
+      required
+      #content>
     </textarea>
-
-    <button
-      class="button"
-      type="submit"
-      [disabled]="!postForm.valid"
-    >
-      Send Post
-    </button>
+  
+    <button 
+      class="button" 
+      type="submit" 
+      (click)="addItem(title.value, content.value)"
+      [disabled]="!postForm.valid">Add</button>
   </form>
 </section>

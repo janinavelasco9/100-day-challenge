@@ -1,0 +1,5 @@
+<div class="alert alert--success" *ngIf="notificationService.notifications.length">
+  <p class="alert-copy" *ngFor='let notificationMessage of notificationService.notifications'>
+    {{ notificationMessage }}
+  </p>
+</div>

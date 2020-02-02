@@ -12,8 +12,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PostsComponent } from './posts/posts.component';
 import { IntroComponent } from './intro/intro.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MessageComponent } from './message/message.component';
+import { NotificationComponent } from './notification/notification.component';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthComponent } from './auth/auth.component';
+
 
 const config = {
   apiKey: "AIzaSyAAgWBckC9zVrCi3FnhftJcn1i6u7xG48Q",
@@ -33,7 +36,8 @@ const config = {
     NavigationComponent,
     PostsComponent,
     IntroComponent,
-    MessageComponent,
+    NotificationComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +46,9 @@ const config = {
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(config),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

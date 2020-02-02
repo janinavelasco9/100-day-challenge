@@ -3,20 +3,14 @@
     Posts
   </h1>
 
-
-  <div class="post" *ngFor="let post of loadedPosts" >
+  <div class="post" *ngFor="let item of items | async">
     <h2 class="post-title">
-      {{ post.title }}
-      <!-- {{ post.id }} -->
+      {{ item.title }}
     </h2>
-    <div class="post-body" [innerHTML]="post.content">
+    <div class="post-body" [innerHTML]="item.content">
     </div>
-    <button
-      class="btn btn-danger"
-      (click)="onClearPosts(post)"
-    >
-      Clear Posts
-    </button>
+    <button (click)="deleteItem(item.key)">Delete</button>
   </div>
+  <button (click)="deleteEverything()">Delete All</button>
 </section>
 

@@ -1,4 +1,4 @@
-<nav role="navigation" class="navigation" [class.navigation--inverse-pink]="rlaPost.isActive || rlaBlog.isActive">
+<nav role="navigation" class="navigation" [class.navigation--inverse-pink]="rlaBlog.isActive">
   <a class="navigation-link navigation-link--site link" routerLink="">
     OHDC
   </a>
@@ -6,8 +6,9 @@
     <a class="navigation-link link" routerLink="/blog" routerLinkActive #rlaBlog="routerLinkActive">
       Blog
     </a>
-    <a class="navigation-link link" routerLink="/new-post" routerLinkActive #rlaPost="routerLinkActive">
+    <a class="navigation-link link" *ngIf="isAuthenticated" routerLink="/new-post" routerLinkActive #rlaPost="routerLinkActive">
       Create New Post
     </a>
+    <a class="navigation-link link" *ngIf="!isAuthenticated" routerLink="/auth" routerLinkActive #rlaAuth="routerLinkActive">Login</a>
   </div>
 </nav>
