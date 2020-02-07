@@ -1,46 +1,41 @@
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="alert alert-danger" *ngIf="error">
-      <p>{{ error }}</p>
+<section class="container">
+  <h1 class="page-title">
+    Login
+  </h1>
+  
+  <form class="form" [formGroup]="authForm">
+    <div class="input-container">
+      <label class="label" for="email">
+        E-Mail
+      </label>
+      <input
+        type="text"
+        class="text-input"
+        id="email"
+        required
+        name="email"
+        formControlName="email"
+      />
     </div>
-    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
-      <div class="form-group">
-        <label for="email">E-Mail</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          ngModel
-          name="email"
-          required
-          email
+    
+    <div class="input-container">
+      <label class="label" for="password">
+        Password
+      </label>
+      <input 
+        class="text-input"
+        id="password"
+        formControlName="password"
+        name="password"
+        required
+        type="password"
         />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          ngModel
-          name="password"
-          required
-          minlength="6"
-        />
-      </div>
-      <div>
-        <button
-          class="btn btn-primary"
-          type="submit"
-          [disabled]="!authForm.valid"
-        >
-          {{ isLoginMode ? 'Login' : 'Sign Up' }}
-        </button>
-        |
-        <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
-          Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
+  
+    <button 
+      class="button" 
+      type="submit" 
+      (click)="onSubmit(authForm)"
+      [disabled]="!authForm.valid">Login</button>
+  </form>
+</section>

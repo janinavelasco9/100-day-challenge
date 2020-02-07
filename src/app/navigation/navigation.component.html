@@ -1,14 +1,17 @@
-<nav role="navigation" class="navigation" [class.navigation--inverse-pink]="rlaBlog.isActive">
-  <a class="navigation-link navigation-link--site link" routerLink="">
+<nav role="navigation" class="navigation" [class.navigation--pink]="rla.isActive">
+  <a class="navigation-link navigation-link--site link" routerLink="/" routerLinkActive #rla="routerLinkActive" [routerLinkActiveOptions]="{exact: true}">
     OHDC
   </a>
   <div class="navigation-links">
-    <a class="navigation-link link" routerLink="/blog" routerLinkActive #rlaBlog="routerLinkActive">
+    <a class="navigation-link link" routerLink="/blog">
       Blog
     </a>
-    <a class="navigation-link link" *ngIf="isAuthenticated" routerLink="/new-post" routerLinkActive #rlaPost="routerLinkActive">
+    <a class="navigation-link link" *ngIf="isAuthenticated" routerLink="/new-post">
       Create New Post
     </a>
-    <a class="navigation-link link" *ngIf="!isAuthenticated" routerLink="/auth" routerLinkActive #rlaAuth="routerLinkActive">Login</a>
+    <a class="navigation-link link" *ngIf="isAuthenticated" (click)="onLogout()">
+      Logout
+    </a>
+    <a class="navigation-link link" *ngIf="!isAuthenticated" routerLink="/auth">Login</a>
   </div>
 </nav>

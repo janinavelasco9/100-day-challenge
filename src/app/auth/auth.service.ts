@@ -64,8 +64,10 @@ export class AuthService {
             resData.idToken,
             +resData.expiresIn
           );
+      console.log(resData.email)
         })
       );
+      
   }
 
   logout() {

@@ -13,7 +13,6 @@ export class NavigationComponent implements OnInit {
   private userSub: Subscription;
 
   constructor(
-    // private dataStorageService: DataStorageService,
     private authService: AuthService
   ) {}
 
@@ -22,5 +21,9 @@ export class NavigationComponent implements OnInit {
       this.isAuthenticated = !!user;
       console.log(this.isAuthenticated)
     });
+  }
+  
+  onLogout() {
+    this.authService.logout();
   }
 }

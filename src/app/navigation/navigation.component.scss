@@ -8,10 +8,18 @@ $white: #fff;
   height: 77px;
   justify-content: space-between;
   width: 100%;
-  background: $pink;
+  background: $white;
   color: $white;
   top: 0;
   padding: 0 2rem;
+  .navigation-link,
+  .navigation-link-site {
+    color: $pink;
+  }
+  
+  .link:after {
+    background: $pink;
+  }
 }
 
 .navigation-link {
@@ -27,15 +35,14 @@ $white: #fff;
   font-size: 1.5rem;
 }
 
-.navigation--inverse-pink {
-  background: $white;
-  
+.navigation--pink {  
+  background: $pink;
   .navigation-link,
   .navigation-link-site {
-    color: $pink;
+    color: $white;
   }
   
   .link:after {
-    background: $pink;
+    background: $white;
   }
 }
